@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>صفحة حب ❤️</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b, #ff758c);
+      background-size: 400% 400%;
+      animation: gradientBG 10s ease infinite;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: rgba(255, 20, 60, 0.25);
+      padding: 25px;
+      border-radius: 25px;
+      box-shadow: 0 0 25px rgba(255, 0, 80, 0.5);
+      backdrop-filter: blur(6px);
+    }
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin: 15px 0;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,0,80,0.8);
+    }
+    .names {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    .message {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 18px;
+      border-radius: 18px;
+      margin: 15px 0;
+      font-size: 18px;
+      line-height: 1.6;
+      box-shadow: 0 0 10px rgba(255,0,80,0.4);
+    }
+    .timer {
+      font-size: 20px;
+      margin: 15px 0;
+    }
+    audio {
+      width: 100%;
+      margin-top: 15px;
+    }
+    footer {
+      margin-top: 15px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  const password = "توتي";
+  let userPass = prompt("اكتب الباسورد عشان تدخل ❤️");
+
+  if (userPass !== password) {
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;color:white'>الباسورد غلط ❌</h2>";
+  }
+</script>
+
+<div class="container">
+  <h1>قصة حبنا ❤️</h1>
+
+  <!-- غير الصورة هنا -->
+  <img src="couple.jpg" alt="صورتنا">
+
+  <!-- غير الأسماء هنا -->
+  <div class="names">عمرو ❤️ فاطمة</div>
+
+  <!-- الرسالة -->
+  <div class="message">كل سنة وانتي معايا ي روح قلب مرمر ومعايا وجمبي بحبك ي احلى صدفة حصلت ف حياتي بحبك اوي اوي اوي ي روحي والله بحبك اي انا بعشقك اوي اوي اوي بعشق كل حاجة فيكي ي توتي والله انتي اغلى حاجة ف حياتي واحلى شخص قابلته ف حياتي واحلى واحدة شافتها عيني بحبك ي روحي وربنا يخليكي ليا وميحرمنيش منك ابدا ابدا وتفضلي جمبي وترخمي عليا وتهزري ونرغي مع بعض للصبح وتغيري عليا كدهو يارب تفضلي معايا وجمبي كل سنة ونتجوز امين يارب ي حلمي القمر</div>
+
+  <!-- العداد -->
+  <div class="timer" id="timer">من يوم ما اتعرفنا: ...</div>
+
+  <!-- الأغنية -->
+  <audio controls autoplay loop>
+    <source src="Amr_Diab_Aayesh_Maak.mp3" type="audio/mpeg">
+    متصفحك لا يدعم تشغيل الصوت
+  </audio>
+
+  <footer>
+    معمول مخصوص ليك ❤️
+  </footer>
+</div>
+
+<script>
+  // غير التاريخ هنا (سنة, شهر-1, يوم)
+  const startDate = new Date(2025, 9, 9); // 12/3/2024
+
+  function updateTimer() {
+    const now = new Date();
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById("timer").innerHTML =
+      من يوم ما اتعرفنا: ${days} يوم، ${hours} ساعة، ${minutes} دقيقة، ${seconds} ثانية;
+  }
+
+  setInterval(updateTimer, 1000);
+  updateTimer();
+</script>
+
+</body>
+</html>
